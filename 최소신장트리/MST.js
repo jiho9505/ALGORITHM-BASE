@@ -20,7 +20,7 @@ function union_parent(parent, a, b){
 function solution() {
     let n = 7; // 노드 개수
     let e = 7; // 간선 개수
-    const graph = [[1,2,3],[1,5,2],[2,3,8],[3,4,10],[4,6,6],[5,6,1],[6,7,3]];
+    const graph = [[6,7,3],[1,5,2],[2,3,8],[3,4,10],[4,6,6],[5,6,1],[1,2,3]];
     // 세번째 인자는 cost
     let total = 0;
     let parent = new Array(n+1);
@@ -33,7 +33,8 @@ function solution() {
         edges.push([cost,a,b]);
     }
 
-    edges.sort();
+    edges.sort((a,b) => a[0]-b[0]);
+    console.log(edges.sort((a,b) => a[0]-b[0]))
 
     // 부모 테이블상에서, 부모를 자기 자신으로 초기화
     for(let i = 1; i<= n; i++){
