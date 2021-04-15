@@ -15,7 +15,7 @@ const dy = [ 0, 1, 0, -1 ];
 
 const DFS = (x, y) => {
 
-    if(c[N-1][M-1]){
+    if(c[N-1][M-1]){ // x = N-1 , y = M-1 일때 return 해도 ok
         return;
     }
 
@@ -48,3 +48,8 @@ function solution() {
 }
 
 solution();
+
+/*
+    재귀의 과정을 잘 생각해볼것!
+    (0,0)이 제일 마지막에 끝난다.
+*/
