@@ -24,17 +24,8 @@ function solution() {
     // 세번째 인자는 cost
     let total = 0;
     let parent = new Array(n+1);
-    let edges = [];
-
-    for(let i = 0; i< graph.length; i++){
-        let a = graph[i][0];
-        let b = graph[i][1];
-        let cost = graph[i][2];
-        edges.push([cost,a,b]);
-    }
-
-    edges.sort((a,b) => a[0]-b[0]);
-    console.log(edges.sort((a,b) => a[0]-b[0]))
+ 
+    graph.sort((a,b) => a[2]-b[2]);
 
     // 부모 테이블상에서, 부모를 자기 자신으로 초기화
     for(let i = 1; i<= n; i++){
@@ -42,9 +33,9 @@ function solution() {
     }
 
     for(let i = 0; i< e; i++){
-        let cost = edges[i][0];
-        let a = edges[i][1];
-        let b = edges[i][2];
+        let cost = graph[i][2];
+        let a = graph[i][0];
+        let b = graph[i][1];
         // 사이클이 발생한 경우 종료
         if(find_parent(parent, a) === find_parent(parent, b)){
             continue;
