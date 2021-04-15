@@ -2,6 +2,7 @@
 [배열 초기화]
 const arr = new Array(n); // 다 undefined 상태
 const arr = Array.from({length: 5}, () => 0);
+const c = new Array(n+1).fill(0);
 const graphs = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0)); // 2차원 배열 선언
 let newBoard = JSON.parse(JSON.stringify( myBoard )) // 배열복사
 
