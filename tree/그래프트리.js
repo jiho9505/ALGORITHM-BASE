@@ -12,7 +12,8 @@ const bfs = (x,c) => {
     
     while(q.length>0){
         let y = q.shift();
-        for(let i =0; i <e[y].length; i++){
+        for(let i =0; i <e[y].length; i++){  
+            // 만약 DAG 같은 경우 방향성이라 length가 안먹힐 수 있으니 위에서 예외처리 혹은 []을 삽입
             let z = e[y][i];
             if(!c[z]){
                 q.push(z);
