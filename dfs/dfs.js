@@ -30,7 +30,8 @@ const DFS = (x, y) => {
             // 길이 존재하고 이전에 방문했던적이 없는 경우
             if (map[next_x][next_y] === 0 && c[next_x][next_y] === 0) // '1' 조심 상황에 따라.. 
             {
-                c[next_x][next_y] = c[x][y] + 1;
+                c[next_x][next_y] = c[x][y] + 1; // 이렇게 안해도 될듯 세번째인자에 
+                                                 // c 값 전해주면 위에서 c 갱신 가능
                 DFS(next_x,next_y); // 재귀
             }
 

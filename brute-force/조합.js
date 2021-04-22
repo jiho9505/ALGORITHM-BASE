@@ -13,7 +13,7 @@ const DFS = (start, depth) => {
     }
     for(let i = start; i < input.length; i++){ 
         arr.push(i);
-        DFS(i,depth+1);
+        DFS(i+1,depth+1);
         arr.pop();    
     }
 }
