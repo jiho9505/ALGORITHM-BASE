@@ -45,7 +45,7 @@ const topologySort = () => {
 function solution() {
     
     const graph = [[1,2],[1,5],[2,3],[3,4],[4,6],[5,6],[6,7]];
-
+    // 만약 세번째 인자로 cost 있을 시 [1,2,10]이면 {1: [2,10]} 이런식으로 넣어주면 될듯?
     for (let i = 0; i < graph.length; i++) {
         let a = graph[i][0];
         let b = graph[i][1];
