@@ -81,3 +81,35 @@ bst.insert(0);
 
 // preOrder(bst);
 postOrder(bst);
+
+// Graph bst ----------------------------------------------------------------------------
+let d = {};
+
+const bst = (parentData, childData) => {
+    
+
+    if(parentData > childData){
+        if(d[parentData][0] === -1){
+            d[parentData][0] = childData;
+        }else{
+            bst(d[parentData][0],childData);
+        }
+    }else{
+        if(d[parentData][1] === -1){
+            d[parentData][1] = childData;
+        }else{
+            bst(d[parentData][1],childData);
+        }
+    }
+}
+
+const data = [5,3,6,8,1,2,7,9,0];
+let root = data[0];
+d[root] = [-1,-1];
+
+for(let i=1; i<data.length; i++){
+    d[data[i]] = [-1,-1];
+    bst(root,data[i]);
+}
+
+
