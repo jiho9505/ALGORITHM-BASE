@@ -5,6 +5,7 @@ const arr = Array.from({length: 5}, () => 0);
 const c = new Array(n+1).fill(0);
 const graphs = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0)); // 2차원 배열 선언
 let newBoard = JSON.parse(JSON.stringify( myBoard )) // 배열복사
+=> 배열복사는 이렇게 할 필요없이 [...array] 이런 식으로 할 것!
 
 [object]
 Object.keys(objS).length // objS(object) length 구하는 법
@@ -21,7 +22,11 @@ array.sort((a,b) => {return a[1] === b[1] ? a[0] - b[0] : a[1]-b[1] })
 
 [array]
 months.splice(1, 0, 'Feb');
-// inserts at index 1   (0은 replace 4면 4를 replace한다.)
+// index 1에서 0개 지우고 'Feb' 추가
+myFish.splice(3, 1);
+// index 3에서 1개 지우기
+fruits.join();
+// default가 ',' 공백없이 붙게하려면 .join('');
 
 [regex]
 let regexAllCase = new RegExp(pattern, "gi"); // pattern이 유동적일때 사용
