@@ -38,6 +38,7 @@ str.match() // 매치부분 배열로 나옴 (regex에서 +시 뭉텅이로!)
 .toString(); // 일부 string화 x
 parseInt(); // 일부 가능
 .toLowerCase() // 한개도 선택가능
+.toUpperCase()
 
 string.replace('바꿀문자', '새로운문자') : 바꿀문자를 새로운 문자로 변환해 준다.
 string.slice(n1, n2) : 문자열의 n1부터 n2-1번 인덱스까지의 문자열 반환
@@ -60,7 +61,7 @@ const temp = [...array]; // array 복사
 // 이거보다
 object[key] = [...value, newValue];
 
-// 이게 훨씬 빠름
+// 이게 훨씬 빠름 (value가 배열이여야 가능)
 object[key].push(newValue);
 
 Math.floor() // 내림 ex) 1.5 => 1  *이진탐색시 유용*
