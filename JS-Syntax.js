@@ -64,6 +64,8 @@ object[key] = [...value, newValue];
 object[key].push(newValue);
 
 Math.floor() // 내림 ex) 1.5 => 1  *이진탐색시 유용*
+Math.max / min 사용 가능
+isNaN(x) // is Not a Number면 true
 
 n*m 일 때,
 	90도 회전 : B[i][j] = A[n-1-j][i] 
