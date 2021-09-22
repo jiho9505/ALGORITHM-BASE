@@ -1,4 +1,4 @@
-// kakao parser.js
+// kakao parser example
 
 const axios = require('axios');
 const BASE_URL =
@@ -19,30 +19,35 @@ const AuthConfig = {
 };
 
 (async () => {
-  await axios.post(`${BASE_URL}/start`, body, tokenConfig).then((res) => {
-    AuthConfig.headers.Authorization = res.data.auth_key;
-  });
+  try {
+    const startAPI = await axios.post(`${BASE_URL}/start`, body, tokenConfig);
+    AuthConfig.headers.Authorization = startAPI.data.auth_key;
 
-  await axios.get(`${BASE_URL}/trucks`, AuthConfig).then((res) => {
-    console.log('Data is ', res.data);
-  });
+    const truckAPI = await axios.get(`${BASE_URL}/trucks`, AuthConfig);
+    console.log('Data is ', truckAPI.data);
 
-  await new Promise(async (resolve) => {
-    try {
-      for (let i = 0; i < 720; i++) {
-        await axios
-          .put(`${BASE_URL}/simulate`, { commands: [] }, AuthConfig)
-          .then((res) => {
-            console.log('?', res.data);
-            i === 719 && resolve();
-          });
+    const locationAPI = await axios.get(`${BASE_URL}/locations`, AuthConfig);
+    console.log('location is ', locationAPI.data);
+
+    await new Promise(async (resolve) => {
+      try {
+        for (let i = 0; i < 720; i++) {
+          const result = await axios.put(
+            `${BASE_URL}/simulate`,
+            { commands: [] },
+            AuthConfig
+          );
+          console.log('result: ', result.data);
+          i === 719 && resolve();
+        }
+      } catch (e) {
+        throw e;
       }
-    } catch (e) {
-      console.log('error is : ', e);
-    }
-  });
+    });
 
- axios.get(`${BASE_URL}/score`, AuthConfig).then((res) => {
-    console.log('Score is ', res.data);
-  });
+    const scoreAPI = await axios.get(`${BASE_URL}/score`, AuthConfig);
+    console.log('Score is ', scoreAPI.data);
+  } catch (e) {
+    console.log('Error is : ', e);
+  }
 })();
